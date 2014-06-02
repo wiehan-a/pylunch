@@ -18,6 +18,9 @@ class Restaurant(models.Model):
 	name = models.CharField(max_length=MAX_RESTAURANT_NAME_LENGTH)
 	description = models.CharField(max_length=MAX_DESCRIPTION_LENGTH)
 
+	def __unicode__(self):
+		return self.name
+
 class Special(models.Model):
 	restaurant = models.ForeignKey(Restaurant)
 	description = models.CharField(max_length=MAX_DESCRIPTION_LENGTH)
@@ -26,3 +29,9 @@ class Special(models.Model):
 
 	special_price = models.DecimalField(**MAX_PRICE_FORMAT)
 	normal_price = models.DecimalField(**MAX_PRICE_FORMAT)
+
+	valid_from = models.DateField()
+	valid_until = models.DateField()
+
+	def __unicode__(self):
+		return "%s: %s" % (self.restaurant.name, self.description)
