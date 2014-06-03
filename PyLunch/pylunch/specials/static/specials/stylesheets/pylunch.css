@@ -1,0 +1,8 @@
+ul.inline-list li {
+    display: inline;
+}
+
+hr.no-bottom-space {
+    margin: 0px;
+    margin-bottom: 5px;
+}

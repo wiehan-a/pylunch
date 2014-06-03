@@ -4,12 +4,16 @@
 
 {% block left_col %}
     <h3>All restaurants</h3>
-    {% if restaurant_list %}
-        <ul>
-        {% for restaurant in restaurant_list %}
-            <li><a href="/restaurant/{{ restaurant.id }}/">{{ restaurant.name }}</a></li>
-        {% endfor %}
-        </ul>
+    {% if restaurant_groups %}
+            {% for restaurant_group in restaurant_groups %}
+                <h4>{{restaurant_group.start_letter}} – {{restaurant_group.end_letter}}</h4>
+                <hr class="no-bottom-space">
+                <ul class="inline-list">
+                {% for restaurant in restaurant_group.restaurant_list %}
+                    <li><a href="/restaurant/{{ restaurant.id }}/">{{ restaurant.name }}</a></li>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </ul>
+            {% endfor %}
     {% else %}
         <p>No restaurants are available.</p>
     {% endif %}
