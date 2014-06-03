@@ -1,9 +1,16 @@
-{% if restaurant_list %}
-    <ul>
-    {% for restaurant in restaurant_list %}
-        <li><a href="/restaurant/{{ restaurant.id }}/">{{ restaurant.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No restaurants are available.</p>
-{% endif %}
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block left_col %}
+    <h3>All restaurants</h3>
+    {% if restaurant_list %}
+        <ul>
+        {% for restaurant in restaurant_list %}
+            <li><a href="/restaurant/{{ restaurant.id }}/">{{ restaurant.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No restaurants are available.</p>
+    {% endif %}
+{% endblock %}

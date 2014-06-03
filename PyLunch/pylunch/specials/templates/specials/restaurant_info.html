@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{restaurant.name}}{% endblock %}
+
+{% block left_col %}
+    <h3>{{ restaurant.name }}</h3>
+    <ul>
+    {% if restaurant.description %}
+        <li><em>{{ restaurant.description }}</em></li>
+    {% endif %}
+    {% if restaurant.address %}
+        <li><strong>Address:</strong> {{ restaurant.address }}</li>
+    {% endif %}
+    {% if restaurant.phone_number %}
+        <li><strong>Phone number:</strong> {{ restaurant.phone_number }}</li>
+    {% endif %}
+    {% if restaurant.url %}
+        <li><strong>Website:</strong> <a href="{{ restaurant.url }}">{{ restaurant.url }}</a></li>
+    {% endif %}
+    </ul>
+{% endblock %}
