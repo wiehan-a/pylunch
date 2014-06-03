@@ -1,0 +1,355 @@
+- model: specials.weekday
+  fields:
+    weekday: 0
+- model: specials.weekday
+  fields:
+    weekday: 1
+- model: specials.weekday
+  fields:
+    weekday: 2
+- model: specials.weekday
+  fields:
+    weekday: 3
+- model: specials.weekday
+  fields:
+    weekday: 4
+- model: specials.weekday
+  fields:
+    weekday: 5
+- model: specials.weekday
+  fields:
+    weekday: 6
+
+- model: specials.restaurant
+  fields:
+    name: "Aandklas"
+    description: "Student hangout place. Good pizza and burgers. Windhoek on tap!"
+    location: "-33.934007, 18.858783"
+
+- model: specials.restaurant
+  fields:
+    name: "Gino's"
+    description: "Pizza and pasta family restaurant."
+    phone_number: "021 887 9786"
+    location: "-33.9405719602874, 18.8547357396812"
+    address: "Dorp street and Market road T-junction."
+    url: "http://www.ginos.co.za/"
+
+- model: specials.restaurant
+  fields:
+    name: "Trumpettree"
+    description: "Bar/restaurant with pizza and burgers. A lot of beers on tap, including Berkinhead."
+    location: "-33.9394014935992, 18.8557469324799"
+
+- model: specials.restaurant
+  fields:
+    name: "Cafe Art"
+    description: "Venue for watching films on Wednesday evenings, but also a coffee shop in the day."
+    location: "-33.9379817804691, 18.8583057598801"
+
+- model: specials.restaurant
+  fields:
+    name: "5 aan Ryneveld"
+    description: "Cosy atmosphere with great burger selection"
+    phone_number: "0218864842"
+    location: "-33.9382599392951, 18.862978167984"
+
+- model: specials.restaurant
+  fields:
+    name: "Jan Cats"
+    description: "Family restaurant with burgers and Jack Black beer"
+    location: "-33.9385714761013, 18.8614224867554"
+
+- model: specials.restaurant
+  fields:
+    name: "Mochachos"
+    description: "Fast-food restaurant that specialises in spicy chicken meals"
+    location: "-33.9354315779968, 18.8600491957398"
+
+- model: specials.restaurant
+  fields:
+    name: "Suki Thai"
+    description: "Thai restaurant that serves a variety of Thai food including curries. Also has sushi and Thai beer."
+    phone_number: "0218869373"
+    location: "-33.9309429471208, 18.8600706534119"
+
+- model: specials.restaurant
+  fields:
+    name: "Sgt. Pepper"
+    description: "A pizzeria and bar with a relaxing atmosphere looking down on Andringa street. (serves only pizzas)"
+    location: "-33.9373831795936, 18.8611596302719"
+
+- model: specials.restaurant
+  fields:
+    name: "Dros"
+    description: "Steakhouse and bar with a sports atmosphere."
+    location: "-33.9357075198202, 18.859011180851"
+
+- model: specials.restaurant
+  fields:
+    name: "Brazen Head"
+    description: "Irish themed Pub, wide selection of foods and beers on tap. "
+    location: "-33.9347840013349, 18.8608887271614"
+
+- model: specials.restaurant
+  fields:
+    name: "Apprentice Restaurant"
+    description: "Upmarket restaurant run by students of the Institute of Culinary Arts."
+    location: "-33.937748, 18.861307"
+
+- model: specials.restaurant
+  fields:
+    name: "The Birdcage"
+    description: "A popular gift shop & tea bar just off Church Street and nearby the landmark Moederkerk."
+    location: "-33.9370048794723, 18.8641261534424"
+
+- model: specials.restaurant
+  fields:
+    name: "Cape Town Fish Market"
+    description: "Fish and Sushi."
+    location: "-33.9371272708719, 18.8630800919266"
+
+- model: specials.restaurant
+  fields:
+    name: "De Cameron"
+    description: "No idea, but likely expensive."
+    location: "-33.9367645467575, 18.8633644060822"
+
+- model: specials.restaurant
+  fields:
+    name: "Manouche"
+    description: "Turkish restaurant."
+    location: "-33.9376279611293, 18.8612561897964"
+
+- model: specials.restaurant
+  fields:
+    name: "Java"
+    description: "Coffee shop, but with food."
+    location: "-33.9380440881251, 18.8614975886078"
+
+- model: specials.restaurant
+  fields:
+    name: "Benedetto's"
+    description: "Weird small restaurant with pizza that is always closed."
+    phone_number: "0218828448"
+    location: "-33.9373386737842, 18.862803824398"
+
+- model: specials.restaurant
+  fields:
+    name: "De Kaggel"
+    description: "Pizza en burgers, maar die ander kos is duur."
+    location: "-33.938524745653, 18.861175723526"
+
+- model: specials.restaurant
+  fields:
+    name: "Bohemia"
+    description: "A student bar with basically only pizza."
+    location: "-33.9346059725235, 18.8607465700836"
+
+- model: specials.restaurant
+  fields:
+    name: "Mystic Boer"
+    description: "Student bar with pizza and schnitzel. Only Black Label on tap."
+    location: "-33.9346059725235, 18.8609075026245"
+
+- model: specials.restaurant
+  fields:
+    name: "Melissa's"
+    description: "Food Store with a coffee shop atmosphere. More like a deli."
+    location: "-33.9395394581899, 18.855948098156"
+
+- model: specials.restaurant
+  fields:
+    name: "De Akker"
+    description: "A bar for a little older crowd. They sell burgers and chips if you are lucky enough to catch their kitchen open."
+    location: "-33.9394593497451, 18.856133170578"
+
+- model: specials.restaurant
+  fields:
+    name: "Plakkies"
+    description: "Cafe for engineering students."
+    location: "-33.9295653773599, 18.8655799107285"
+
+- model: specials.restaurant
+  fields:
+    name: "Spur"
+    description: "Family steakhouse."
+    location: "-33.935449380722, 18.8595368938179"
+
+- model: specials.restaurant
+  fields:
+    name: "Panarottis"
+    description: "Family pizzeria."
+    location: "-33.9354315779968, 18.859740741703"
+
+- model: specials.restaurant
+  fields:
+    name: "Terrace"
+    description: "A bar for the English student crowd."
+    location: "-33.9358054344459, 18.8586919979782"
+
+- model: specials.restaurant
+  fields:
+    name: "Mug & Bean"
+    description: "Coffee shop restaurant."
+    location: "-33.938257714028, 18.8594805674286"
+
+- model: specials.restaurant
+  fields:
+    name: "Hillcrest"
+    description: "Coffee shop and restaurant on a berry farm."
+    phone_number: "021 885 1629"
+    location: "-33.9104328810562, 18.9431681709023"
+
+- model: specials.restaurant
+  fields:
+    name: "Simply Asia"
+    description: "Indian food"
+    location: "-33.9398799182394, 18.8542583064766"
+
+- model: specials.restaurant
+  fields:
+    name: "Wakaberry"
+    description: "Self service frozen yoghurt."
+    location: "-33.9377036207344, 18.8609665112228"
+
+- model: specials.restaurant
+  fields:
+    name: "Die Wynhuis"
+    description: "High class restaurant with traditional Afrikaans food."
+    location: "-33.9378727419614, 18.8610067443581"
+
+- model: specials.restaurant
+  fields:
+    name: "Morgenhof"
+    description: "Wine farm with a coffee shop and restaurant. The restaurant's speciality is steaks (around R100). Afterwards one can go for a wine tasting. 5 wines for R20."
+    location: "-33.8933600236469, 18.8609343247147"
+
+- model: specials.restaurant
+  fields:
+    name: "Buena Vista Social Cafe, Stellenbosch"
+    description: "Wide variety of drinks including cocktails, wine and beer. The food are a little more Mexican."
+    phone_number: "021 855 4454"
+    location: "-34.0064148102996, 18.822627015564"
+    url: "http://buenavistas.co.za/"
+
+- model: specials.restaurant
+  fields:
+    name: "Radish"
+    description: "Upper class restaurant renowned for their steak. (Previously called Two Chefs)"
+    phone_number: "021 865 2456"
+    location: "-33.8787043380451, 18.7939220146866"
+    address: "Few kilometres out on the Bottelary Road."
+    url: "http://www.twochefs.co.za/"
+
+- model: specials.restaurant
+  fields:
+    name: "La Romantica"
+    description: "Mostly a family restaurant renowned for their pizza. They also have the usual stuff like steak and burgers."
+    phone_number: "0218800601"
+    location: "-33.9627254584427, 18.8513266520233"
+    address: "Corner of R44 (Strandpad) and Blaauwklippen Road, Stellenbosch"
+
+- model: specials.restaurant
+  fields:
+    name: "Jimmy the Fish"
+    description: "A seafood restaurant with a good atmosphere. As it is a bit outside of town you will see less students here. Except for fish, sushi and the general seafood menu, they also have pizza and steak."
+    phone_number: "021 880 0071"
+    location: "-33.9625764082802, 18.8515707330437"
+
+- model: specials.restaurant
+  fields:
+    name: "Asta La Pasta"
+    description: "Authentic Italian pasta restaurant. Quite small so booking might be necessary."
+    phone_number: "021 887 7300"
+    location: "-33.9397063505412, 18.8545479850502"
+    address: "Corner of Dorp and Market road. Look for the sign on Market road's side. The entrance are on the opposite side in an alleyway."
+
+- model: specials.restaurant
+  fields:
+    name: "Col'Cacchio"
+    description: "Upmarket restaurant with very good pizza."
+    phone_number: "(021) 886-7088"
+    location: "-33.9373876301732, 18.8622083739967"
+    address: "Plein Street, opposite ABSA"
+    url: "http://www.colcacchio.co.za/"
+
+- model: specials.restaurant
+  fields:
+    name: "Tiramisu Sports Lounge"
+    description: "Bar, but with good food selection and a few big screen TV's. They describe themselves as a lounge which is likely a better description of what they really are."
+    phone_number: "021 882 9977"
+    location: "-33.9371651009053, 18.8622325138779"
+    address: "Plein street, opposite civic centre and ABSA building."
+    url: "http://tiramisusportslounge.blogspot.com/"
+
+- model: specials.restaurant
+  fields:
+    name: "Pizza Thyme"
+    description: "Wood fired pizza, wraps and subs take away."
+    phone_number: "021-8828850|51|52"
+    location: "-33.9386894147376, 18.8594349698753"
+    url: "http://www.pizzathyme.co.za/"
+
+- model: specials.restaurant
+  fields:
+    name: "Zebro's"
+    description: "Very well priced flame grilled chicken burgers. Specials on certain days of the week."
+    phone_number: "0218833360"
+    location: "-33.9350888748098, 18.8590460495682"
+
+- model: specials.restaurant
+  fields:
+    name: "The Hussar Grill"
+    description: "Upmarket steak house. No corkage for bringing your own wine."
+    phone_number: "021 8828088"
+    location: "-33.9373119702874, 18.8605427221985"
+    address: "NULL"
+    url: "http://www.hussargrill.co.za/"
+
+- model: specials.restaurant
+  fields:
+    name: "Hayashi"
+    description: "Sushi and Chinese food restaurant. Good value."
+    phone_number: "021 883 8917"
+    location: "-33.9317352065516, 18.8599580006332"
+    address: "Next to the BP in Merriman Avenue, underneath Springboks."
+    url: "http://www.hayashi.co.za/"
+
+- model: specials.restaurant
+  fields:
+    name: "Volkskombuis"
+    description: "A typical Afrikaans cuisine served in a colonial South African house."
+    phone_number: "+27 (0) 21 887 2121 / 887 5239"
+    location: "-33.9419738288681, 18.8527804093094"
+    url: "http://www.volkskombuis.co.za/"
+
+- model: specials.restaurant
+  fields:
+    name: "Basic Bistro"
+    description: "Cosy restaurant that is also ideal for a coffee and cake outing."
+    location: "-33.9379817076516, 18.8618120964959"
+
+- model: specials.restaurant
+  fields:
+    name: "De Oude Bank Bakkerij"
+    description: "Coffee shop restaurant that bakes their own bread."
+    location: "-33.9383934552087, 18.8604354338379"
+
+- model: specials.restaurant
+  fields:
+    name: "Tollies"
+    description: "Pub and beer brewery"
+    location: "-33.9354115499264, 18.8585471586914"
+
+- model: specials.restaurant
+  fields:
+    name: "Die Lapa"
+    description: "Bar for students at the later times of the evening"
+    location: "-33.9348018041955, 18.8590862827034"
+
+- model: specials.restaurant
+  fields:
+    name: "Bukhara"
+    description: "Fancy Indian Cuisine"
+    location: "-33.9387138925473, 18.8603496031494"

@@ -1,15 +1,11 @@
 from django.db import models
 from geoposition.fields import GeopositionField
 
-MAX_PRICE_FORMAT = 	{
-                        'max_digits': 5, 
-                        'decimal_places': 2
-                    }
-
-MAX_RESTAURANT_NAME_LENGTH = 50
-MAX_TELEPHONE_LENGTH = 20
-
 class Restaurant(models.Model):
+
+    MAX_RESTAURANT_NAME_LENGTH = 50
+    MAX_TELEPHONE_LENGTH = 50 # :-(
+
     name = models.CharField(max_length=MAX_RESTAURANT_NAME_LENGTH, unique=True)
     description = models.TextField()
     phone_number =  models.CharField(max_length=MAX_TELEPHONE_LENGTH, blank=True)
@@ -19,32 +15,6 @@ class Restaurant(models.Model):
 
     def __unicode__(self):
 	   return self.name
-
-class Special(models.Model):
-
-    LUNCH = 'LU'
-    BREAKFAST = 'BR'
-    DINNER = 'DI'
-    SPECIAL_TYPES = (
-                        (LUNCH, 'Lunch'),
-                        (BREAKFAST, 'Breakfast'),
-                        (DINNER, 'Dinner'),
-                    )
-
-    restaurant = models.ForeignKey(Restaurant)
-    description = models.CharField(max_length=MAX_DESCRIPTION_LENGTH)
-
-    special_type = models.CharField(max_length=2, choices=SPECIAL_TYPES)
-
-    special_price = models.DecimalField(**MAX_PRICE_FORMAT)
-    normal_price = models.DecimalField(**MAX_PRICE_FORMAT)
-
-    weekdays_valid = models.ManyToManyField(Weekday)
-    valid_from = models.DateField(blank=True)
-    valid_until = models.DateField(blank=True)
-
-    def __unicode__(self):
-	   return "%s: %s" % (self.restaurant.name, self.description)
 
 class Weekday(models.Model):
 
@@ -60,3 +30,38 @@ class Weekday(models.Model):
 
     weekday = models.CharField(max_length=1, choices=DAYS_OF_WEEK, 
                                 unique=True, primary_key=True)
+
+    def __unicode__(self):
+        return (d for c, d in Weekday.DAYS_OF_WEEK 
+                    if int(self.weekday) == c).next()
+
+class Special(models.Model):
+
+    LUNCH = 'LU'
+    BREAKFAST = 'BR'
+    DINNER = 'DI'
+    SPECIAL_TYPES = (
+                        (LUNCH, 'Lunch'),
+                        (BREAKFAST, 'Breakfast'),
+                        (DINNER, 'Dinner'),
+                    )
+
+    MAX_PRICE_FORMAT =  {
+                            'max_digits': 5, 
+                            'decimal_places': 2
+                        }
+
+    restaurant = models.ForeignKey(Restaurant)
+    description = models.TextField()
+
+    special_type = models.CharField(max_length=2, choices=SPECIAL_TYPES)
+
+    special_price = models.DecimalField(**MAX_PRICE_FORMAT)
+    normal_price = models.DecimalField(**MAX_PRICE_FORMAT)
+
+    weekdays_valid = models.ManyToManyField(Weekday)
+    valid_from = models.DateField(blank=True)
+    valid_until = models.DateField(blank=True)
+
+    def __unicode__(self):
+	   return "%s: %s" % (self.restaurant.name, self.description)
