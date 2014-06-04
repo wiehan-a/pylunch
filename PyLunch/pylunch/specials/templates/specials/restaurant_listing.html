@@ -1,8 +1,27 @@
 {% extends "base.html" %}
+{% load special_extras %}
 
 {% block title %}Home{% endblock %}
 
 {% block left_col %}
+    <h3>Current specials</h3>
+    {% if time_specific_specials %}
+        <h4>{{ special_type }} specials</h4>
+        {% for special in time_specific_specials %}
+            {% render_special special%}
+        {% endfor %}
+    {% endif %}
+
+    {% if all_day_specials %}
+        <h4>All day specials</h4>
+        {% for special in all_day_specials %}
+            {% render_special special%}
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
+
+{% block right_col %}
     <h3>All restaurants</h3>
     {% if restaurant_groups %}
             {% for restaurant_group in restaurant_groups %}

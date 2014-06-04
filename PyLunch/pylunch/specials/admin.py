@@ -1,5 +1,16 @@
 from django.contrib import admin
-from specials.models import Restaurant, Special
+from specials.models import Restaurant, Special, OpenClosedTime
 
-admin.site.register(Restaurant)
-admin.site.register(Special)
+class OpenClosedTimeInline(admin.StackedInline):
+    model = OpenClosedTime
+
+class RestaurantAdmin(admin.ModelAdmin):
+    inlines = [
+        OpenClosedTimeInline
+    ]
+
+class SpecialAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Restaurant, RestaurantAdmin)
+admin.site.register(Special, SpecialAdmin)
