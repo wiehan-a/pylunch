@@ -73,7 +73,8 @@ class Restaurant(models.Model):
                                 {
                                     "start_letter" : group[0][1],
                                     "end_letter" : group[-1][1],
-                                    "restaurant_list" : [r for r, _ in group]
+                                    "restaurant_list" : 
+                                            [r for r, _ in group]
                                 }
                                 for group in groups
                             ]
@@ -83,8 +84,8 @@ class Restaurant(models.Model):
 class OpenClosedTime(models.Model):
     restaurant = models.ForeignKey(Restaurant)
     weekday = models.ForeignKey(Weekday)
-    opening_time = models.TimeField(blank=False)
-    closing_time = models.TimeField(blank=False)
+    opening_time = models.TimeField(blank=True, null=True)
+    closing_time = models.TimeField(blank=True, null=True)
     closed_all_day = models.BooleanField(default=False)
 
     # def __unicode__(self):
@@ -119,7 +120,9 @@ class Special(models.Model):
     restaurant = models.ForeignKey(Restaurant)
     description = models.TextField()
 
-    special_type = models.CharField(max_length=2, choices=SPECIAL_TYPES)
+    all_day_flag = models.BooleanField(default=False, blank=True)
+    start_time = models.TimeField(blank=True, null=True)
+    end_time = models.TimeField(blank=True, null=True)
 
     half_price_flag = models.BooleanField(default=False, blank=True)
     special_price = models.DecimalField(blank=True, null=True, **MAX_PRICE_FORMAT)
@@ -148,6 +151,44 @@ class Special(models.Model):
             return None
 
     @staticmethod
+    def get_valid_now_queryset():
+        """
+            Retrieve the specials that are currently valid.
+            Returns:
+            - time_specific_specials : specials only valid for a window of time
+            - all_day_specials : specials that are valid all day
+        """
+
+        current_datetime =  datetime.now()
+        current_date = current_datetime.date()
+        current_time = current_datetime.time()
+        current_weekday = current_datetime.weekday()
+
+        valid_queryset = Special.objects.filter(
+            (models.Q(valid_from__lte=current_date) & 
+                models.Q(valid_until__gte=current_date)) |
+            (models.Q(valid_permanently=True))
+        ).filter(
+            models.Q(verified=True) & models.Q(enabled=True)
+        ).filter(
+            weekdays_valid__weekday=current_weekday
+        )
+
+        time_specific_specials = valid_queryset.filter(
+            models.Q(start_time__lte=current_time) &
+                models.Q(end_time__gte=current_time)
+        )
+
+        all_day_specials = valid_queryset.filter(
+            models.Q(all_day_flag=True) | 
+                (models.Q(start_time__isnull=True) &
+                    models.Q(end_time__isnull=True))
+        )
+
+        return time_specific_specials, all_day_specials
+
+
+    @staticmethod
     def add_current_special_context(context):
         """
             Add to context:
@@ -155,32 +196,33 @@ class Special(models.Model):
             - All day specials
         """
         current_datetime =  datetime.now()
-        current_date = current_datetime.date()
         current_time = current_datetime.time()
-
-        valid_queryset = Special.objects.filter(
-                             valid_from__lte=current_date
-                         ).filter(
-                             valid_until__gte=current_date
-                         ).filter(
-                             verified=True
-                         )
-
         valid_special_type = Special.get_current_special_type(current_time)
-        if valid_special_type != Special.ALL_DAY:
-            time_specific_specials = valid_queryset.filter(
-                                        special_type=valid_special_type
-                                     )
-        else:
-            time_specific_specials = None
 
-        all_day_specials = valid_queryset.filter(
-                               special_type=Special.ALL_DAY
-                           )
+        time_specific_specials, all_day_specials = Special.get_valid_now_queryset()
 
-        context['special_type'] = valid_special_type
+        try:
+            context['special_type'] = (y for x, y in Special.SPECIAL_TYPES 
+                                        if x==valid_special_type).next()
+        except StopIteration:
+            pass
         context['time_specific_specials'] = time_specific_specials
         context['all_day_specials'] = all_day_specials
+
+
+    @staticmethod
+    def add_restaurant_specials_context(restaurant, context):
+        """
+            Add the specials of the current restaurant to the
+            context.
+        """
+
+        time_specific_specials, all_day_specials = Special.get_valid_now_queryset()
+        all_valid = (time_specific_specials | all_day_specials).filter(restaurant=restaurant).all()
+        all_specials = Special.objects.filter(restaurant=restaurant).all()
+        all_invalid = set(all_specials) - set(all_valid)
+        context['valid_specials'] = all_valid
+        context['invalid_specials'] = all_invalid
 
 
 

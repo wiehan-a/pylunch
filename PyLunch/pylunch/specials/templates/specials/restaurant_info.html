@@ -1,21 +1,41 @@
 {% extends "base.html" %}
+{% load special_extras %}
 
 {% block title %}{{restaurant.name}}{% endblock %}
+{% block head %}
+    {% render_map_preamble restaurant.location %}
+{% endblock %}
 
 {% block left_col %}
-    <h3>{{ restaurant.name }}</h3>
-    <ul>
-    {% if restaurant.description %}
-        <li><em>{{ restaurant.description }}</em></li>
+    {% render_restaurant_full restaurant %}
+    <div class="make-room">
+        <h3>Map</h3>
+        <div id="map-canvas"></div>
+    </div>
+{% endblock %}
+
+{% block right_col %}
+    {% if valid_specials or invalid_specials %}
+        {% if valid_specials %}
+            <div class="make-room">
+                <h3>Available specials</h3>
+                <ol>
+                    {% for special in valid_specials %}
+                        <li>{% render_special_supermini special %}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        {% endif %}
+        {% if invalid_specials %}
+            <h3>Unavailable specials</h3>
+            <ol>
+                {% for special in invalid_specials %}
+                    <li>{% render_special_supermini special %}</li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    {% else %}
+        <h3>Specials</h3>
+        <p>This restaurant does not have any specials.</p>
     {% endif %}
-    {% if restaurant.address %}
-        <li><strong>Address:</strong> {{ restaurant.address }}</li>
-    {% endif %}
-    {% if restaurant.phone_number %}
-        <li><strong>Phone number:</strong> {{ restaurant.phone_number }}</li>
-    {% endif %}
-    {% if restaurant.url %}
-        <li><strong>Website:</strong> <a href="{{ restaurant.url }}">{{ restaurant.url }}</a></li>
-    {% endif %}
-    </ul>
 {% endblock %}

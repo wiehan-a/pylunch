@@ -6,3 +6,31 @@ hr.no-bottom-space {
     margin: 0px;
     margin-bottom: 5px;
 }
+
+div.special-superminibox {
+    margin-bottom: 10px;
+}
+
+div.special-minibox p, div.special-full p, div.special-superminibox p {
+    margin-bottom: 0px;
+}
+
+p.view-more {
+    text-align: right !important;
+}
+
+div.minibox-header h5, div.minibox-header p {
+    display: inline;
+}
+
+div.make-room {
+    margin-bottom: 25px !important;
+}
+
+#map-canvas {
+    height: 200px;
+}
+
+.no-underline a {
+    text-decoration: none;
+}

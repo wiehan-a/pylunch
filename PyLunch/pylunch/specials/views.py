@@ -11,4 +11,10 @@ def index(request):
 def restaurant_info(request, r_id):
     restaurant = get_object_or_404(Restaurant, pk=r_id)
     context = {'restaurant' : restaurant}
+    Special.add_restaurant_specials_context(restaurant, context)
     return render(request, 'specials/restaurant_info.html', context)
+
+def special_info(request, sp_id):
+    special = get_object_or_404(Special, pk=sp_id)
+    context = {'special' : special}
+    return render(request, 'specials/special_info.html', context)

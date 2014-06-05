@@ -1,0 +1,7 @@
+{% load special_extras %}
+
+<div class="special-superminibox">
+    <p><em>{{ special.description }}</em></p>
+    {% render_special_price special %}
+    <p>[<a href="{% url "special_info" special.id %}">view special</a>]</p>
+</div>

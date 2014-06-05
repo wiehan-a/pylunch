@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load special_extras %}
+
+{% block title %}{{restaurant.name}}{% endblock %}
+
+{% block left_col %}
+    <h3>Special details</h3>
+    {% render_special_full special %}
+{% endblock %}
+
+{% block right_col %}
+    {% render_restaurant_mini special.restaurant %}
+{% endblock %}

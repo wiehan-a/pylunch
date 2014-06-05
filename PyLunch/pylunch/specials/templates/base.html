@@ -33,6 +33,9 @@
 	================================================== -->
 	<link rel="shortcut icon" href="{% static "specials/images/favicon.ico" %}">
 
+	{% block head %}
+	{% endblock %}
+
 </head>
 <body>
 
@@ -43,16 +46,17 @@
 	
 	<div class="container">
 		<div class="sixteen columns">
-			<h1 class="remove-bottom" style="margin-top: 40px">Stellenbosch Restaurants</h1>
+			<h2 class="remove-bottom no-underline" style="margin-top: 40px"><a href="{% url "index"%}">Stellenbosch Restaurants</a></h2>
 			<hr />
 		</div>
 
-		<div class="eight columns">
+		<div class="eight columns make-room">
 			{% block left_col %}
 				<p>Nothing to see here</p>
 			{% endblock %}
 		</div>
-		<div class="eight columns">
+
+		<div class="eight columns make-room">
 			{% block right_col %}
 				<p>Nothing to see here</p>
 			{% endblock %}

@@ -7,16 +7,20 @@
     <h3>Current specials</h3>
     {% if time_specific_specials %}
         <h4>{{ special_type }} specials</h4>
-        {% for special in time_specific_specials %}
-            {% render_special special%}
-        {% endfor %}
+        <ol>
+            {% for special in time_specific_specials %}
+                <li>{% render_special_mini special %}</li>
+            {% endfor %}
+        </ol>
     {% endif %}
 
     {% if all_day_specials %}
         <h4>All day specials</h4>
-        {% for special in all_day_specials %}
-            {% render_special special%}
-        {% endfor %}
+        <ol>
+            {% for special in all_day_specials %}
+                <li>{% render_special_mini special %}</li>
+            {% endfor %}
+        </ol>
     {% endif %}
 
 {% endblock %}

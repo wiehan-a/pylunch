@@ -1,0 +1,9 @@
+{% load special_extras %}
+
+<div class="special-minibox">
+    <div class="minibox-header">
+        <h5><a href="{% url "restaurant_info" special.restaurant.id %}">{{ special.restaurant.name }}</a></h5>
+
+    </div>
+    {% render_special_supermini special %}
+</div>

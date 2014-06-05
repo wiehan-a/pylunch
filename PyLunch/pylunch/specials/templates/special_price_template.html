@@ -1,0 +1,5 @@
+{% if special.half_price_flag %}
+<p><strong>Half price</strong>{% if special.special_price %}<strong>:</strong> <strong>R{{special.special_price}}</strong>{% endif %} {% if special.normal_price %}(normally <strong>R{{special.normal_price}}</strong>){% endif %}</p>
+{% else %}
+<p>{% if special.special_price %}<strong>Price: R{{special.special_price}}</strong>{% endif %} {% if special.normal_price %}(normally <strong>R{{special.normal_price}}</strong>){% endif %}</p>
+{% endif %}

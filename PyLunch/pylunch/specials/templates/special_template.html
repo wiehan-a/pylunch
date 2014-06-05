@@ -1,7 +1,0 @@
-<div>
-    <h5><a href="{% url "restaurant_info" special.restaurant.id %}">{{ special.restaurant.name }}</a></h5>
-    <em>{{ special.description }}</em>
-    {% if special.half_price_flag %}
-    <p><strong>Half price</strong>{% if special.special_price %}<strong>:</strong> R{{special.special_price}}{% endif %} {% if special.normal_price %}(normally R{{special.normal_price}}){% endif %}</p>
-    {% endif %}
-</div>
