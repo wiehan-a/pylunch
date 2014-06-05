@@ -11,6 +11,7 @@ def index(request):
 def restaurant_info(request, r_id):
     restaurant = get_object_or_404(Restaurant, pk=r_id)
     context = {'restaurant' : restaurant}
+    restaurant.add_operating_hours_context(context)
     Special.add_restaurant_specials_context(restaurant, context)
     return render(request, 'specials/restaurant_info.html', context)
 

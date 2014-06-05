@@ -8,8 +8,29 @@
 
 {% block left_col %}
     {% render_restaurant_full restaurant %}
+
+    {% if restaurant.has_free_wifi %}
+        <p><strong>Wi-Fi</strong> is available.
+        {% if restaurant.wifi_ssid %}
+        Access point name is "<strong>{{ restaurant.wifi_ssid }}</strong>".
+        {% endif %}
+        {% if restaurant.wifi_password %}
+        The password is "<strong>{{ restaurant.wifi_password }}</strong>".
+        {% endif %}
+        </p>
+    {% endif %}
+
+    {% if operating_hours %}
     <div class="make-room">
-        <h3>Map</h3>
+        <h4>Operating hours</h4>
+        {% for open_closed_time in operating_hours%}
+            <p class="no-room"><strong>{{open_closed_time.weekday}}</strong>: {% if open_closed_time.closed_all_day %}Closed{% else %}{% if open_closed_time.opening_time %}{{open_closed_time.opening_time}}{% else %}–{% endif %} to {% if open_closed_time.closing_time %}{{open_closed_time.closing_time}}{% else %}–{% endif %}{% endif %}</p>
+        {% endfor %}
+    </div>
+    {% endif%}
+
+    <div class="make-room">
+        <h4>Location</h4>
         <div id="map-canvas"></div>
     </div>
 {% endblock %}

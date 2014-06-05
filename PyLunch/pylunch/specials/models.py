@@ -47,6 +47,9 @@ class Restaurant(models.Model):
     def __unicode__(self):
        return self.name
 
+    def add_operating_hours_context(self, context):
+        context['operating_hours'] = OpenClosedTime.objects.filter(restaurant=self).all()
+
     @staticmethod
     def add_listing_context(context, num_groups=4):
         """
@@ -88,8 +91,13 @@ class OpenClosedTime(models.Model):
     closing_time = models.TimeField(blank=True, null=True)
     closed_all_day = models.BooleanField(default=False)
 
-    # def __unicode__(self):
-    #     return 
+    def __unicode__(self):
+        if self.closed_all_day:
+            return "%s - Closed" % self.weekday
+        elif self.opening_time and self.closing_time:
+            return "%s - %s" % (str(self.opening_time), str(self.closing_time))
+        else:
+            return "%s - Open" % self.weekday
 
 class Special(models.Model):
 

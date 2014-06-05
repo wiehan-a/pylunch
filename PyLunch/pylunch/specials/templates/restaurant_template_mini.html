@@ -9,6 +9,9 @@
 {% if restaurant.phone_number %}
     <li><strong>Phone number:</strong> {{ restaurant.phone_number }}</li>
 {% endif %}
+{% if restaurant.email_address %}
+    <li><strong>Email address:</strong> <a href="mailto:{{ restaurant.email_address }}">{{ restaurant.email_address }}</a></li>
+{% endif %}
 {% if restaurant.url %}
     <li><strong>Website:</strong> <a href="{{ restaurant.url }}">{{ restaurant.url }}</a></li>
 {% endif %}

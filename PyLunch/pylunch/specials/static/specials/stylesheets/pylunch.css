@@ -11,7 +11,7 @@ div.special-superminibox {
     margin-bottom: 10px;
 }
 
-div.special-minibox p, div.special-full p, div.special-superminibox p {
+div.special-minibox p, div.special-full p, div.special-superminibox p, p.no-room {
     margin-bottom: 0px;
 }
 
